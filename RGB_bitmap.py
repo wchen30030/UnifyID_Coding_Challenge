@@ -2,14 +2,14 @@ import urllib.request
 from PIL import Image
 
 
-num_bits_left = 24 * 128 ** 2
-all_bits = b''
+num_bytes_left = 3 * 128 ** 2
+all_bytes = b''
 
-while num_bits_left > 0: 
-    all_bits += urllib.request.urlopen("https://www.random.org/integers/?num=10000&min=0&max=255&col=1&base=10&format=plain&rnd=new").read()
-    num_bits_left -= 10000
+while num_bytes_left > 0: 
+    all_bytes += urllib.request.urlopen("https://www.random.org/integers/?num=10000&min=0&max=255&col=1&base=10&format=plain&rnd=new").read()
+    num_bytes_left -= 10000
 
-random_bytes = [int(x) for x in all_bits[:-1].decode().split('\n')]
+random_bytes = [int(x) for x in all_bytes[:-1].decode().split('\n')]
 
 img = Image.new('RGB', (128,128))
 pixels = img.load()
