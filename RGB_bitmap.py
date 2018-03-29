@@ -22,3 +22,4 @@ for i in range(img.size[0]):
         pixels[i,j] = (x, y, z)
 
 img.show()
+img.save("bm.bmp")
